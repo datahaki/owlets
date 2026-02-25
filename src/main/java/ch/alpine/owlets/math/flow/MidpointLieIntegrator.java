@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import ch.alpine.owlets.math.model.StateSpaceModel;
+import ch.alpine.sophus.api.TangentSpace;
 import ch.alpine.sophus.lie.LieGroup;
-import ch.alpine.sophus.math.api.Exponential;
 import ch.alpine.tensor.Rational;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Tensor;
@@ -15,7 +15,7 @@ public class MidpointLieIntegrator implements Integrator, Serializable {
   /** @param lieGroup
    * @param exponential
    * @return */
-  public static Integrator of(LieGroup lieGroup, Exponential exponential) {
+  public static Integrator of(LieGroup lieGroup, TangentSpace exponential) {
     return new MidpointLieIntegrator( //
         Objects.requireNonNull(lieGroup), //
         Objects.requireNonNull(exponential));
@@ -23,9 +23,9 @@ public class MidpointLieIntegrator implements Integrator, Serializable {
 
   // ---
   private final LieGroup lieGroup;
-  private final Exponential exponential;
+  private final TangentSpace exponential;
 
-  private MidpointLieIntegrator(LieGroup lieGroup, Exponential exponential) {
+  private MidpointLieIntegrator(LieGroup lieGroup, TangentSpace exponential) {
     this.lieGroup = lieGroup;
     this.exponential = exponential;
   }

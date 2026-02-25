@@ -18,7 +18,7 @@ import ch.alpine.sophis.ref.d1.CurveSubdivision;
 import ch.alpine.sophis.ts.Transition;
 import ch.alpine.sophis.ts.TransitionSpace;
 import ch.alpine.sophis.ts.TransitionWrap;
-import ch.alpine.sophus.math.api.TensorMetric;
+import ch.alpine.sophus.api.TensorMetric;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Tensor;
 import ch.alpine.tensor.alg.Reverse;
