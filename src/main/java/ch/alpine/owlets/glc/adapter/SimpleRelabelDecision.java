@@ -39,7 +39,8 @@ public class SimpleRelabelDecision implements RelabelDecision, Serializable {
   }
 
   // function is used in tests
-  /* package */ boolean doRelabel(Scalar newMerit, Scalar oldMerit) {
+  // TODO function used to be package visible
+  public boolean doRelabel(Scalar newMerit, Scalar oldMerit) {
     Scalar delta = oldMerit.subtract(newMerit);
     return Sign.isPositive(delta) //
         && Scalars.nonZero(chop.apply(delta));

@@ -29,7 +29,8 @@ import ch.alpine.tensor.red.Nest;
 import ch.alpine.tensor.sca.Ceiling;
 import ch.alpine.tensor.sca.Sign;
 
-/* package */ class RrtsFlowTrajectoryGenerator {
+// TODO class used to be package visisble
+public class RrtsFlowTrajectoryGenerator {
   @SuppressWarnings("unused")
   private final StateSpaceModel stateSpaceModel;
   private final BiFunction<StateTime, StateTime, Tensor> uBetween;
