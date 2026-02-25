@@ -39,5 +39,14 @@ jobs:
         run: mvn -B -ntp install -DskipTests
         working-directory: ./sophus
 
+      - name: checkout sophis
+        uses: actions/checkout@v4
+        with:
+          repository: datahaki/sophis
+          path: sophis  
+      - name: build and install sophis
+        run: mvn -B -ntp install -DskipTests
+        working-directory: ./sophis
+
       - name: mvn test
         run: mvn -B -ntp test
