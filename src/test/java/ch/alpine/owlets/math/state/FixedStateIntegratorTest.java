@@ -1,0 +1,43 @@
+// code by jph
+package ch.alpine.owlets.math.state;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+import ch.alpine.owlets.math.flow.EulerIntegrator;
+import ch.alpine.owlets.math.model.SingleIntegratorStateSpaceModel;
+import ch.alpine.owlets.math.model.StateSpaceModel;
+import ch.alpine.tensor.Rational;
+import ch.alpine.tensor.RealScalar;
+import ch.alpine.tensor.Scalars;
+import ch.alpine.tensor.Tensor;
+import ch.alpine.tensor.Tensors;
+
+class FixedStateIntegratorTest {
+  @Test
+  void testSimple() {
+    StateSpaceModel stateSpaceModel = SingleIntegratorStateSpaceModel.INSTANCE;
+    FixedStateIntegrator fsi = //
+        FixedStateIntegrator.create(EulerIntegrator.INSTANCE, stateSpaceModel, Rational.of(1, 2), 3);
+    Tensor u = Tensors.vector(1, 2);
+    // Flow flow = StateSpaceModels.createFlow(SingleIntegratorStateSpaceModel.INSTANCE, );
+    List<StateTime> list = fsi.trajectory(new StateTime(Tensors.vector(2, 3), RealScalar.of(10)), u);
+    assertEquals(list.size(), 3);
+    assertEquals(list.get(2).time(), Scalars.fromString("10+3/2"));
+    assertEquals(fsi.getTimeStepTrajectory(), Rational.of(3, 2));
+  }
+
+  @Test
+  void testFail1() {
+    assertThrows(Exception.class, () -> FixedStateIntegrator.create(EulerIntegrator.INSTANCE, SingleIntegratorStateSpaceModel.INSTANCE, RealScalar.of(-.1), 3));
+  }
+
+  @Test
+  void testFail2() {
+    assertThrows(Exception.class, () -> FixedStateIntegrator.create(EulerIntegrator.INSTANCE, SingleIntegratorStateSpaceModel.INSTANCE, RealScalar.of(0), 3));
+  }
+}
