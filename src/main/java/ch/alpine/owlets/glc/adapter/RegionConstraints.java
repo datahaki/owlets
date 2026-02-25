@@ -8,7 +8,7 @@ import ch.alpine.owlets.math.state.SimpleTrajectoryRegionQuery;
 import ch.alpine.owlets.math.state.StateTime;
 import ch.alpine.owlets.math.state.TimeDependentRegion;
 import ch.alpine.owlets.math.state.TimeInvariantRegion;
-import ch.alpine.sophis.math.api.Region;
+import ch.alpine.sophis.api.Region;
 import ch.alpine.tensor.Tensor;
 
 /** members in the given regions are considered obstacles */

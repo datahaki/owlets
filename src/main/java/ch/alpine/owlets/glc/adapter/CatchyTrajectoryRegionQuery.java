@@ -11,7 +11,7 @@ import ch.alpine.owlets.math.state.StateTimeRegionCallback;
 import ch.alpine.owlets.math.state.TimeDependentRegion;
 import ch.alpine.owlets.math.state.TimeInvariantRegion;
 import ch.alpine.owlets.math.state.TrajectoryRegionQuery;
-import ch.alpine.sophis.math.api.Region;
+import ch.alpine.sophis.api.Region;
 import ch.alpine.tensor.Tensor;
 
 /** wrapper for obstacle and goal queries */

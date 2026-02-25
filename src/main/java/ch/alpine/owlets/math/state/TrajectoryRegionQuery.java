@@ -4,7 +4,7 @@ package ch.alpine.owlets.math.state;
 import java.util.List;
 import java.util.Optional;
 
-import ch.alpine.sophis.math.api.Region;
+import ch.alpine.sophis.api.Region;
 
 /** performs trajectory containment query
  * 
