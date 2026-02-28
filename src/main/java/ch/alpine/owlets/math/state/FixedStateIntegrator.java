@@ -12,28 +12,16 @@ import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Tensor;
 import ch.alpine.tensor.sca.Sign;
 
-/** trajectory integration with fixed step size over given time period */
-public class FixedStateIntegrator implements StateIntegrator, Serializable {
-  /** @param integrator
-   * @param timeStep non-negative period of one step
-   * @param trajectorySize number of steps
-   * @return */
-  public static FixedStateIntegrator create( //
-      Integrator integrator, StateSpaceModel stateSpaceModel, Scalar timeStep, int trajectorySize) {
-    return new FixedStateIntegrator(integrator, stateSpaceModel, timeStep, trajectorySize);
-  }
-
-  // ---
-  private final Integrator integrator;
-  private final StateSpaceModel stateSpaceModel;
-  private final Scalar timeStep;
-  private final int trajectorySize;
-
-  private FixedStateIntegrator(Integrator integrator, StateSpaceModel stateSpaceModel, Scalar timeStep, int trajectorySize) {
-    this.integrator = integrator;
-    this.stateSpaceModel = stateSpaceModel;
-    this.timeStep = Sign.requirePositive(timeStep);
-    this.trajectorySize = trajectorySize;
+/** trajectory integration with fixed step size over given time period
+ * 
+ * @param integrator
+ * @param timeStep non-negative period of one step
+ * @param trajectorySize number of steps
+ * @return */
+public record FixedStateIntegrator(Integrator integrator, StateSpaceModel stateSpaceModel, Scalar timeStep, int trajectorySize)
+    implements StateIntegrator, Serializable {
+  public FixedStateIntegrator {
+    Sign.requirePositive(timeStep);
   }
 
   @Override // from StateIntegrator

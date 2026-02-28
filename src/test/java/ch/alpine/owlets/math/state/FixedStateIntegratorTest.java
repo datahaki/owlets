@@ -23,7 +23,7 @@ class FixedStateIntegratorTest {
   void testSimple() {
     StateSpaceModel stateSpaceModel = SingleIntegratorStateSpaceModel.INSTANCE;
     FixedStateIntegrator fsi = //
-        FixedStateIntegrator.create(EulerIntegrator.INSTANCE, stateSpaceModel, Quantity.of(Rational.of(1, 2), "s"), 3);
+        new FixedStateIntegrator(EulerIntegrator.INSTANCE, stateSpaceModel, Quantity.of(Rational.of(1, 2), "s"), 3);
     Tensor u = Tensors.fromString("{1[m*s^-1],2[m*s^-1]}");
     Tensor init = Tensors.fromString("{2[m],3[m]}");
     List<StateTime> list = fsi.trajectory(new StateTime(init, Quantity.of(Rational.of(10, 1), "s")), u);
@@ -35,11 +35,11 @@ class FixedStateIntegratorTest {
 
   @Test
   void testFail1() {
-    assertThrows(Exception.class, () -> FixedStateIntegrator.create(EulerIntegrator.INSTANCE, SingleIntegratorStateSpaceModel.INSTANCE, RealScalar.of(-.1), 3));
+    assertThrows(Exception.class, () -> new FixedStateIntegrator(EulerIntegrator.INSTANCE, SingleIntegratorStateSpaceModel.INSTANCE, RealScalar.of(-.1), 3));
   }
 
   @Test
   void testFail2() {
-    assertThrows(Exception.class, () -> FixedStateIntegrator.create(EulerIntegrator.INSTANCE, SingleIntegratorStateSpaceModel.INSTANCE, RealScalar.of(0), 3));
+    assertThrows(Exception.class, () -> new FixedStateIntegrator(EulerIntegrator.INSTANCE, SingleIntegratorStateSpaceModel.INSTANCE, RealScalar.of(0), 3));
   }
 }
