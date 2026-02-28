@@ -46,7 +46,7 @@ public class Expand<T extends StateCostNode> {
 
   /** iterates until expansion creates a first node goal region or timeLimit is reached
    *
-   * @param timeLimit */
+   * @param timeLimit with unit "s" */
   public void maxTime(Scalar timeLimit) {
     final Timing timing = Timing.started();
     expand(Integer.MAX_VALUE, () -> {
