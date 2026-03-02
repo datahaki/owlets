@@ -54,13 +54,15 @@ public final class MultiCostGoalAdapter implements GoalInterface, Serializable {
   public Scalar costIncrement(GlcNode glcNode, List<StateTime> trajectory, Tensor flow) {
     return collection.stream() //
         .map(costFunction -> costFunction.costIncrement(glcNode, trajectory, flow)) //
-        .reduce(Scalar::add).orElseThrow();
+        .reduce(Scalar::add) //
+        .orElseThrow();
   }
 
   @Override // from HeuristicFunction
   public Scalar minCostToGoal(Tensor x) {
     return collection.stream() //
         .map(costFunction -> costFunction.minCostToGoal(x)) //
-        .reduce(Scalar::add).orElseThrow();
+        .reduce(Scalar::add) //
+        .orElseThrow();
   }
 }
