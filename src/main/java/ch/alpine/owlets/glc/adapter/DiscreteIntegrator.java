@@ -3,9 +3,9 @@ package ch.alpine.owlets.glc.adapter;
 
 import java.util.List;
 
-import ch.alpine.owlets.math.model.StateSpaceModel;
 import ch.alpine.owlets.math.state.StateIntegrator;
 import ch.alpine.owlets.math.state.StateTime;
+import ch.alpine.sophis.flow.StateSpaceModel;
 import ch.alpine.tensor.RealScalar;
 import ch.alpine.tensor.Tensor;
 

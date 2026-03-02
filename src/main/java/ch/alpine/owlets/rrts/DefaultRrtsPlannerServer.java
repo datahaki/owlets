@@ -7,7 +7,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import ch.alpine.owlets.math.model.StateSpaceModel;
 import ch.alpine.owlets.math.state.StateTime;
 import ch.alpine.owlets.rrts.core.DefaultRrts;
 import ch.alpine.owlets.rrts.core.DefaultRrtsPlanner;
@@ -18,6 +17,7 @@ import ch.alpine.owlets.rrts.core.RrtsNodeCollection;
 import ch.alpine.owlets.rrts.core.RrtsPlanner;
 import ch.alpine.owlets.rrts.core.TransitionCostFunction;
 import ch.alpine.owlets.rrts.core.TransitionRegionQuery;
+import ch.alpine.sophis.flow.StateSpaceModel;
 import ch.alpine.sophis.ts.TransitionSpace;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Tensor;

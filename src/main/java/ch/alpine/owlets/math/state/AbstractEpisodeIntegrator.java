@@ -4,8 +4,8 @@ package ch.alpine.owlets.math.state;
 import java.io.Serializable;
 import java.util.List;
 
-import ch.alpine.owlets.math.flow.Integrator;
-import ch.alpine.owlets.math.model.StateSpaceModel;
+import ch.alpine.sophis.flow.Integrator;
+import ch.alpine.sophis.flow.StateSpaceModel;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Tensor;
 

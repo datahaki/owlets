@@ -8,9 +8,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import ch.alpine.owlets.math.flow.EulerIntegrator;
-import ch.alpine.owlets.math.model.SingleIntegratorStateSpaceModel;
-import ch.alpine.owlets.math.model.StateSpaceModel;
+import ch.alpine.sophis.flow.Integrators;
+import ch.alpine.sophis.flow.StateSpaceModel;
+import ch.alpine.sophis.flow.StateSpaceModels;
 import ch.alpine.tensor.Rational;
 import ch.alpine.tensor.RealScalar;
 import ch.alpine.tensor.Scalars;
@@ -21,9 +21,9 @@ import ch.alpine.tensor.qty.Quantity;
 class FixedStateIntegratorTest {
   @Test
   void testSimple() {
-    StateSpaceModel stateSpaceModel = SingleIntegratorStateSpaceModel.INSTANCE;
+    StateSpaceModel stateSpaceModel = StateSpaceModels.SINGLE_INTEGRATOR;
     FixedStateIntegrator fsi = //
-        new FixedStateIntegrator(EulerIntegrator.INSTANCE, stateSpaceModel, Quantity.of(Rational.of(1, 2), "s"), 3);
+        new FixedStateIntegrator(Integrators.EULER, stateSpaceModel, Quantity.of(Rational.of(1, 2), "s"), 3);
     Tensor u = Tensors.fromString("{1[m*s^-1],2[m*s^-1]}");
     Tensor init = Tensors.fromString("{2[m],3[m]}");
     List<StateTime> list = fsi.trajectory(new StateTime(init, Quantity.of(Rational.of(10, 1), "s")), u);
@@ -35,11 +35,11 @@ class FixedStateIntegratorTest {
 
   @Test
   void testFail1() {
-    assertThrows(Exception.class, () -> new FixedStateIntegrator(EulerIntegrator.INSTANCE, SingleIntegratorStateSpaceModel.INSTANCE, RealScalar.of(-.1), 3));
+    assertThrows(Exception.class, () -> new FixedStateIntegrator(Integrators.EULER, StateSpaceModels.SINGLE_INTEGRATOR, RealScalar.of(-.1), 3));
   }
 
   @Test
   void testFail2() {
-    assertThrows(Exception.class, () -> new FixedStateIntegrator(EulerIntegrator.INSTANCE, SingleIntegratorStateSpaceModel.INSTANCE, RealScalar.of(0), 3));
+    assertThrows(Exception.class, () -> new FixedStateIntegrator(Integrators.EULER, StateSpaceModels.SINGLE_INTEGRATOR, RealScalar.of(0), 3));
   }
 }

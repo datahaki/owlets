@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.BiFunction;
 
-import ch.alpine.owlets.math.model.StateSpaceModel;
 import ch.alpine.owlets.math.state.StateTime;
 import ch.alpine.owlets.math.state.TrajectorySample;
 import ch.alpine.owlets.rrts.adapter.DirectedTransition;
 import ch.alpine.owlets.rrts.core.RrtsNode;
+import ch.alpine.sophis.flow.StateSpaceModel;
 import ch.alpine.sophis.itp.AdjacentDistances;
 import ch.alpine.sophis.ref.d1.CurveSubdivision;
 import ch.alpine.sophis.ts.Transition;

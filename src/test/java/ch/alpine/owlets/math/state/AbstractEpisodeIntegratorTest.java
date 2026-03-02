@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
-import ch.alpine.owlets.math.flow.Integrator;
-import ch.alpine.owlets.math.flow.RungeKutta45Integrator;
-import ch.alpine.owlets.math.model.SingleIntegratorStateSpaceModel;
+import ch.alpine.sophis.flow.Integrator;
+import ch.alpine.sophis.flow.Integrators;
+import ch.alpine.sophis.flow.StateSpaceModels;
 import ch.alpine.tensor.RealScalar;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Tensors;
@@ -17,10 +17,10 @@ import ch.alpine.tensor.sca.Chop;
 class AbstractEpisodeIntegratorTest {
   @Test
   void testSmall() {
-    Integrator integrator = RungeKutta45Integrator.INSTANCE;
+    Integrator integrator = Integrators.RK45;
     StateTime init = new StateTime(Tensors.vector(1, 2), RealScalar.of(3));
     EpisodeIntegrator episodeIntegrator = new SimpleEpisodeIntegrator( //
-        SingleIntegratorStateSpaceModel.INSTANCE, integrator, //
+        StateSpaceModels.SINGLE_INTEGRATOR, integrator, //
         init);
     assertEquals(episodeIntegrator.tail(), init);
     Scalar now = RealScalar.of(3.00000001);
