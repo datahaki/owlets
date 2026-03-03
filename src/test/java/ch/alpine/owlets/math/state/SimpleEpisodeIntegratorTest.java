@@ -8,9 +8,9 @@ import java.util.List;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
-import ch.alpine.sophis.flow.Integrators;
 import ch.alpine.sophis.flow.StateSpaceModel;
 import ch.alpine.sophis.flow.StateSpaceModels;
+import ch.alpine.sophis.flow.TimeIntegrators;
 import ch.alpine.tensor.RealScalar;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Scalars;
@@ -20,7 +20,7 @@ import ch.alpine.tensor.Tensors;
 class SimpleEpisodeIntegratorTest {
   @ParameterizedTest
   @EnumSource
-  void testSimple(Integrators integrators) {
+  void testSimple(TimeIntegrators integrators) {
     StateSpaceModel stateSpaceModel = StateSpaceModels.SINGLE_INTEGRATOR;
     Tensor x = Tensors.vector(1, 2);
     Tensor u = Tensors.vector(5, -2);
@@ -39,7 +39,7 @@ class SimpleEpisodeIntegratorTest {
 
   @ParameterizedTest
   @EnumSource
-  void testUnits1(Integrators integrators) {
+  void testUnits1(TimeIntegrators integrators) {
     StateSpaceModel stateSpaceModel = StateSpaceModels.SINGLE_INTEGRATOR;
     Tensor x = Tensors.fromString("{1[m], 2[m]}");
     Tensor u = Tensors.fromString("{5[m], -2[m]}");
@@ -58,7 +58,7 @@ class SimpleEpisodeIntegratorTest {
 
   @ParameterizedTest
   @EnumSource
-  void testUnits2(Integrators integrators) {
+  void testUnits2(TimeIntegrators integrators) {
     StateSpaceModel stateSpaceModel = StateSpaceModels.SINGLE_INTEGRATOR;
     Tensor x = Tensors.fromString("{1[m], 2[m]}");
     Tensor u = Tensors.fromString("{5[m*s^-1], -2[m*s^-1]}");

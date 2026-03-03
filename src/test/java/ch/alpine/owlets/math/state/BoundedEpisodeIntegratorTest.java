@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import ch.alpine.sophis.flow.Integrators;
 import ch.alpine.sophis.flow.StateSpaceModels;
+import ch.alpine.sophis.flow.TimeIntegrators;
 import ch.alpine.tensor.RealScalar;
 import ch.alpine.tensor.Tensors;
 
@@ -16,7 +16,7 @@ class BoundedEpisodeIntegratorTest {
   void testSimple() {
     BoundedEpisodeIntegrator boundedEpisodeIntegrator = new BoundedEpisodeIntegrator( //
         StateSpaceModels.SINGLE_INTEGRATOR, //
-        Integrators.EULER, //
+        TimeIntegrators.EULER, //
         new StateTime(Tensors.vector(1, 2), RealScalar.of(1)), //
         RealScalar.of(1));
     boundedEpisodeIntegrator.move(Tensors.vector(2, -1), RealScalar.of(3));
@@ -31,7 +31,7 @@ class BoundedEpisodeIntegratorTest {
   void testNegativeFail() {
     assertThrows(Exception.class, () -> new BoundedEpisodeIntegrator( //
         StateSpaceModels.SINGLE_INTEGRATOR, //
-        Integrators.EULER, //
+        TimeIntegrators.EULER, //
         new StateTime(Tensors.vector(1, 2), RealScalar.ZERO), //
         RealScalar.of(-1)));
   }

@@ -4,17 +4,17 @@ package ch.alpine.owlets.math.state;
 import java.io.Serializable;
 import java.util.List;
 
-import ch.alpine.sophis.flow.Integrator;
 import ch.alpine.sophis.flow.StateSpaceModel;
+import ch.alpine.sophis.flow.TimeIntegrator;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Tensor;
 
 public abstract class AbstractEpisodeIntegrator implements EpisodeIntegrator, Serializable {
   protected final StateSpaceModel stateSpaceModel;
-  /* package */ final Integrator integrator;
+  /* package */ final TimeIntegrator integrator;
   private StateTime stateTime;
 
-  protected AbstractEpisodeIntegrator(StateSpaceModel stateSpaceModel, Integrator integrator, StateTime stateTime) {
+  protected AbstractEpisodeIntegrator(StateSpaceModel stateSpaceModel, TimeIntegrator integrator, StateTime stateTime) {
     this.stateSpaceModel = stateSpaceModel;
     this.integrator = integrator;
     this.stateTime = stateTime;

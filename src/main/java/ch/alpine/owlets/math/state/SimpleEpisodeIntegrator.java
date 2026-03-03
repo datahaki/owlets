@@ -3,8 +3,8 @@ package ch.alpine.owlets.math.state;
 
 import java.util.List;
 
-import ch.alpine.sophis.flow.Integrator;
 import ch.alpine.sophis.flow.StateSpaceModel;
+import ch.alpine.sophis.flow.TimeIntegrator;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Tensor;
 
@@ -12,7 +12,7 @@ import ch.alpine.tensor.Tensor;
  * 
  * implementation is fast and should only be applied for simple {@link StateSpaceModel}s */
 public class SimpleEpisodeIntegrator extends AbstractEpisodeIntegrator {
-  public SimpleEpisodeIntegrator(StateSpaceModel stateSpaceModel, Integrator integrator, StateTime stateTime) {
+  public SimpleEpisodeIntegrator(StateSpaceModel stateSpaceModel, TimeIntegrator integrator, StateTime stateTime) {
     super(stateSpaceModel, integrator, stateTime);
   }
 

@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import ch.alpine.sophis.flow.Integrator;
 import ch.alpine.sophis.flow.StateSpaceModel;
+import ch.alpine.sophis.flow.TimeIntegrator;
 import ch.alpine.tensor.RealScalar;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Tensor;
@@ -18,7 +18,7 @@ import ch.alpine.tensor.sca.Sign;
  * @param timeStep non-negative period of one step
  * @param trajectorySize number of steps
  * @return */
-public record FixedStateIntegrator(Integrator integrator, StateSpaceModel stateSpaceModel, Scalar timeStep, int trajectorySize)
+public record FixedStateIntegrator(TimeIntegrator integrator, StateSpaceModel stateSpaceModel, Scalar timeStep, int trajectorySize)
     implements StateIntegrator, Serializable {
   public FixedStateIntegrator {
     Sign.requirePositive(timeStep);

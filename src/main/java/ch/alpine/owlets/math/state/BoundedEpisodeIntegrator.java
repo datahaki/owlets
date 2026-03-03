@@ -3,8 +3,8 @@ package ch.alpine.owlets.math.state;
 
 import java.util.List;
 
-import ch.alpine.sophis.flow.Integrator;
 import ch.alpine.sophis.flow.StateSpaceModel;
+import ch.alpine.sophis.flow.TimeIntegrator;
 import ch.alpine.tensor.Scalar;
 import ch.alpine.tensor.Scalars;
 import ch.alpine.tensor.Tensor;
@@ -19,7 +19,7 @@ public class BoundedEpisodeIntegrator extends AbstractEpisodeIntegrator {
    * @param integrator
    * @param stateTime initial state
    * @param maxStep in time that given integrator applies */
-  public BoundedEpisodeIntegrator(StateSpaceModel stateSpaceModel, Integrator integrator, StateTime stateTime, Scalar maxStep) {
+  public BoundedEpisodeIntegrator(StateSpaceModel stateSpaceModel, TimeIntegrator integrator, StateTime stateTime, Scalar maxStep) {
     super(stateSpaceModel, integrator, stateTime);
     this.maxStep = Sign.requirePositive(maxStep);
   }
