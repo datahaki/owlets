@@ -23,8 +23,8 @@ import ch.alpine.owlets.rrts.core.RrtsNode;
 import ch.alpine.owlets.rrts.core.TransitionCostFunction;
 import ch.alpine.owlets.rrts.core.TransitionPlanner;
 import ch.alpine.owlets.rrts.core.TransitionRegionQuery;
+import ch.alpine.sophis.api.CurveOperator;
 import ch.alpine.sophis.flow.StateSpaceModel;
-import ch.alpine.sophis.ref.d1.CurveSubdivision;
 import ch.alpine.sophis.ts.TransitionSpace;
 import ch.alpine.sophus.api.TensorMetric;
 import ch.alpine.tensor.Scalar;
@@ -152,7 +152,7 @@ public abstract class RrtsPlannerServer implements TransitionPlanner, ObservingE
     return transitionSpace;
   }
 
-  public final void addTrajectoryPostprocessing(CurveSubdivision curveSubdivision, TensorMetric tensorMetric) {
+  public final void addTrajectoryPostprocessing(CurveOperator curveSubdivision, TensorMetric tensorMetric) {
     flowTrajectoryGenerator.addPostProcessing(curveSubdivision, tensorMetric);
   }
 

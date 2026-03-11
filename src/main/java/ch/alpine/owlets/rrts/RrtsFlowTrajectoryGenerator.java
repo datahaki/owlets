@@ -12,9 +12,9 @@ import ch.alpine.owlets.math.state.StateTime;
 import ch.alpine.owlets.math.state.TrajectorySample;
 import ch.alpine.owlets.rrts.adapter.DirectedTransition;
 import ch.alpine.owlets.rrts.core.RrtsNode;
+import ch.alpine.sophis.api.CurveOperator;
 import ch.alpine.sophis.flow.StateSpaceModel;
 import ch.alpine.sophis.itp.AdjacentDistances;
-import ch.alpine.sophis.ref.d1.CurveSubdivision;
 import ch.alpine.sophis.ts.Transition;
 import ch.alpine.sophis.ts.TransitionSpace;
 import ch.alpine.sophis.ts.TransitionWrap;
@@ -34,7 +34,7 @@ public class RrtsFlowTrajectoryGenerator {
   @SuppressWarnings("unused")
   private final StateSpaceModel stateSpaceModel;
   private final BiFunction<StateTime, StateTime, Tensor> uBetween;
-  private CurveSubdivision curveSubdivision = null;
+  private CurveOperator curveSubdivision = null;
   private TensorMetric tensorMetric = null;
 
   public RrtsFlowTrajectoryGenerator( //
@@ -46,7 +46,7 @@ public class RrtsFlowTrajectoryGenerator {
 
   /** @param curveSubdivision interpolation scheme
    * @param tensorMetric distance metric between samples */
-  public void addPostProcessing(CurveSubdivision curveSubdivision, TensorMetric tensorMetric) {
+  public void addPostProcessing(CurveOperator curveSubdivision, TensorMetric tensorMetric) {
     this.curveSubdivision = Objects.requireNonNull(curveSubdivision);
     this.tensorMetric = Objects.requireNonNull(tensorMetric);
   }
