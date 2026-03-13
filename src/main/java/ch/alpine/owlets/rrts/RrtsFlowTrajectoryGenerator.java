@@ -34,7 +34,7 @@ public class RrtsFlowTrajectoryGenerator {
   @SuppressWarnings("unused")
   private final StateSpaceModel stateSpaceModel;
   private final BiFunction<StateTime, StateTime, Tensor> uBetween;
-  private CurveOperator curveSubdivision = null;
+  private CurveOperator curveOperator = null;
   private TensorMetric tensorMetric = null;
 
   public RrtsFlowTrajectoryGenerator( //
@@ -44,10 +44,10 @@ public class RrtsFlowTrajectoryGenerator {
     this.uBetween = uBetween;
   }
 
-  /** @param curveSubdivision interpolation scheme
+  /** @param curveOperator interpolation scheme
    * @param tensorMetric distance metric between samples */
-  public void addPostProcessing(CurveOperator curveSubdivision, TensorMetric tensorMetric) {
-    this.curveSubdivision = Objects.requireNonNull(curveSubdivision);
+  public void addPostProcessing(CurveOperator curveOperator, TensorMetric tensorMetric) {
+    this.curveOperator = Objects.requireNonNull(curveOperator);
     this.tensorMetric = Objects.requireNonNull(tensorMetric);
   }
 
@@ -57,7 +57,7 @@ public class RrtsFlowTrajectoryGenerator {
    * @return trajectory */
   public List<TrajectorySample> createTrajectory( //
       TransitionSpace transitionSpace, List<RrtsNode> sequence, Scalar t0, final Scalar dt) {
-    if (Objects.isNull(curveSubdivision))
+    if (Objects.isNull(curveOperator))
       return standardTrajectory(transitionSpace, sequence, t0, dt);
     return postProcessedTrajectory(transitionSpace, sequence, t0, dt);
   }
@@ -124,7 +124,7 @@ public class RrtsFlowTrajectoryGenerator {
       int depth = Integers.log2Ceiling(Ceiling.FUNCTION.apply(maxLength.divide(Sign.requirePositive(dt))).number().intValue());
       if (!direction)
         points = Reverse.of(points);
-      Tensor samples = Nest.of(curveSubdivision::string, points, depth);
+      Tensor samples = Nest.of(curveOperator::string, points, depth);
       Tensor spacing = AdjacentDistances.of(tensorMetric).apply(samples);
       if (!direction) {
         samples = Reverse.of(samples);

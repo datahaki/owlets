@@ -152,8 +152,8 @@ public abstract class RrtsPlannerServer implements TransitionPlanner, ObservingE
     return transitionSpace;
   }
 
-  public final void addTrajectoryPostprocessing(CurveOperator curveSubdivision, TensorMetric tensorMetric) {
-    flowTrajectoryGenerator.addPostProcessing(curveSubdivision, tensorMetric);
+  public final void addTrajectoryPostprocessing(CurveOperator curveOperator, TensorMetric tensorMetric) {
+    flowTrajectoryGenerator.addPostProcessing(curveOperator, tensorMetric);
   }
 
   /** @param stateTime */
