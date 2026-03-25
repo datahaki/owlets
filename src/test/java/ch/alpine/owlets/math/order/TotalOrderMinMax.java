@@ -6,7 +6,7 @@ import ch.alpine.tensor.Scalars;
 import ch.alpine.tensor.Tensor;
 
 /** Searches a totally ordered set for its minimal or maximal element */
-/* package */ enum TotalOrderMinMax {
+enum TotalOrderMinMax {
   ;
   /** @param Totally ordered, non-empty set to be searched for minimal element
    * @return Minimal element of totally ordered set */

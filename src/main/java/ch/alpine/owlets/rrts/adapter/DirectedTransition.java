@@ -11,7 +11,7 @@ public class DirectedTransition extends AbstractTransition {
   protected final Transition transition;
   public final boolean isForward;
 
-  /* package */ DirectedTransition(Transition transition, boolean isForward) {
+  DirectedTransition(Transition transition, boolean isForward) {
     super( //
         isForward //
             ? transition.start() //

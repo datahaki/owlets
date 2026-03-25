@@ -43,7 +43,7 @@ public class DefaultRrts implements Rrts {
     return insertAsNode(state, k_nearest, false);
   }
 
-  /* package */ Optional<RrtsNode> insertAsNode(Tensor state, int k_nearest, boolean ignoreCheck) {
+  Optional<RrtsNode> insertAsNode(Tensor state, int k_nearest, boolean ignoreCheck) {
     // the collision check available to class works on transitions, but not on states
     // that means no sanity collision check on state is carried out inside function insertAsNode
     int size = nodeCollection.size();
@@ -129,7 +129,7 @@ public class DefaultRrts implements Rrts {
     return obstacleQuery.isDisjoint(transition);
   }
 
-  /* package */ TransitionRegionQuery getObstacleQuery() {
+  TransitionRegionQuery getObstacleQuery() {
     return obstacleQuery;
   }
 }

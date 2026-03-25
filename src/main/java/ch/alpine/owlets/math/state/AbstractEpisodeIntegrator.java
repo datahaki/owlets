@@ -11,7 +11,7 @@ import ch.alpine.tensor.Tensor;
 
 public abstract class AbstractEpisodeIntegrator implements EpisodeIntegrator, Serializable {
   protected final StateSpaceModel stateSpaceModel;
-  /* package */ final TimeIntegrator integrator;
+  final TimeIntegrator integrator;
   private StateTime stateTime;
 
   protected AbstractEpisodeIntegrator(StateSpaceModel stateSpaceModel, TimeIntegrator integrator, StateTime stateTime) {

@@ -6,7 +6,7 @@ import java.util.Objects;
 import ch.alpine.owlets.rrts.core.RrtsNode;
 import ch.alpine.owlets.rrts.core.RrtsPlanner;
 
-/* package */ class RrtsPlannerProcess {
+class RrtsPlannerProcess {
   private final RrtsPlanner rrtsPlanner;
   private final RrtsNode root;
 

@@ -7,7 +7,7 @@ import ch.alpine.tensor.Tensor;
 import ch.alpine.tensor.alg.Reverse;
 
 public abstract class ReversalTransition extends DirectedTransition {
-  /* package */ ReversalTransition(Transition transition) {
+  ReversalTransition(Transition transition) {
     super(transition, false);
   }
 

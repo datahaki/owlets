@@ -19,7 +19,7 @@ import ch.alpine.tensor.ext.PackageTestAccess;
 import ch.alpine.tensor.pdf.RandomChoice;
 
 /** immutable */
-/* package */ record Pair<K>(K key, Tensor value) implements Serializable {
+record Pair<K>(K key, Tensor value) implements Serializable {
   // ---
 }
 

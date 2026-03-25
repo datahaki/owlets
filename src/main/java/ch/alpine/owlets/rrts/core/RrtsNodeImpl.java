@@ -11,11 +11,11 @@ import ch.alpine.tensor.Throw;
  * Sertac Karaman and Emilio Frazzoli, 2011:
  * Sampling-based algorithms for optimal motion planning
  * Algorithm 6, p.855 */
-/* package */ class RrtsNodeImpl extends SetNode<RrtsNode> implements RrtsNode {
+class RrtsNodeImpl extends SetNode<RrtsNode> implements RrtsNode {
   private final Tensor state;
   private Scalar costFromRoot;
 
-  /* package */ RrtsNodeImpl(Tensor state, Scalar costFromRoot) {
+  RrtsNodeImpl(Tensor state, Scalar costFromRoot) {
     this.state = state;
     this.costFromRoot = costFromRoot;
   }

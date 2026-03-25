@@ -17,7 +17,7 @@ import ch.alpine.tensor.Tensor;
  * 
  * immutable except for children, parent, and depth which are only modified in
  * {@link GlcNodeImpl#addChild(GlcNodeImpl)} */
-/* package */ class GlcNodeImpl extends AbstractNode<GlcNode> implements GlcNode {
+class GlcNodeImpl extends AbstractNode<GlcNode> implements GlcNode {
   private final Map<Tensor, GlcNode> children = new HashMap<>();
   /** flow is null for root node
    * not final, as changed when central node are made root */

@@ -71,7 +71,7 @@ public class BidirectionalRrts implements Rrts {
     return find(goal);
   }
 
-  /* package */ TransitionRegionQuery getObstacleQuery() {
+  TransitionRegionQuery getObstacleQuery() {
     return ((DefaultRrtsPlanner) forwardRrts).getObstacleQuery();
   }
 
