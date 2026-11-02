@@ -96,7 +96,7 @@ public abstract class RrtsPlannerServer implements TransitionPlanner, ObservingE
   public final void expand(RrtsNode node) {
     RrtsPlannerProcess rrtsPlannerProcess = _rrtsPlannerProcess;
     if (Objects.nonNull(rrtsPlannerProcess))
-      rrtsPlannerProcess.planner().expand(node); // TODO OWL ALG can get stuck here
+      rrtsPlannerProcess.planner().expand(node); // TODO ALG can get stuck here
   }
 
   @Override // from ExpandInterface
@@ -128,7 +128,7 @@ public abstract class RrtsPlannerServer implements TransitionPlanner, ObservingE
 
   @Override // from RrtsTrajectoryPlanner
   public final void checkConsistency() {
-    // TODO OWL ALG _rrtsPlannerProcess may be null
+    // TODO ALG _rrtsPlannerProcess may be null
     RrtsNodes.costConsistency(_rrtsPlannerProcess.root(), transitionSpace, costFunction);
   }
 

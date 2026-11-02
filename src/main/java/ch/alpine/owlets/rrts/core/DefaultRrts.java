@@ -52,8 +52,8 @@ public class DefaultRrts implements Rrts {
       nodeCollection.insert(rrtsNode);
       return Optional.of(rrtsNode);
     }
-    if (ignoreCheck || isInsertPlausible(state)) { // TODO OWL ALG is this needed?
-      k_nearest = Math.min(Math.max(1, k_nearest), size); // TODO OWL ALG not elegant
+    if (ignoreCheck || isInsertPlausible(state)) { // TODO ALG is this needed?
+      k_nearest = Math.min(Math.max(1, k_nearest), size); // TODO ALG not elegant
       Optional<RrtsNode> optional = connectAlongMinimumCost(state, k_nearest);
       if (optional.isPresent()) {
         RrtsNode rrtsNode = optional.orElseThrow();
