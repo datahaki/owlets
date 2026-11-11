@@ -16,6 +16,7 @@ public class SimpleTrajectoryRegionQuery implements TrajectoryRegionQuery, Seria
   /** @param region that is queried with tensor = StateTime::state
    * @return
    * @throws Exception if given region is null */
+  // FIXME this shadows another static method/is shadowed!?
   public static TrajectoryRegionQuery timeInvariant(Predicate<Tensor> region) {
     return new SimpleTrajectoryRegionQuery(new TimeInvariantRegion(region));
   }

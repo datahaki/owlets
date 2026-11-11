@@ -18,6 +18,7 @@ import ch.alpine.tensor.Tensor;
 public class CatchyTrajectoryRegionQuery extends SimpleTrajectoryRegionQuery implements StateTimeCollector {
   /** @param region that is queried with tensor = StateTime::state
    * @return */
+  // FIXME this shadows another static method/is shadowed!?
   public static TrajectoryRegionQuery timeInvariant(Region<Tensor> region) {
     return new CatchyTrajectoryRegionQuery(new TimeInvariantRegion(region));
   }
